@@ -1,0 +1,36 @@
+<div style="text-align: center; color: blue; background-color: aquamarine;">
+
+    <div>
+
+        <script>
+            alert("Ok! {{nome}} convertido para {{new_tom}}")
+            function copiarTexto() {
+                let textoCopiado = document.getElementById("cifra_n1");
+                textoCopiado.select();
+                textoCopiado.setSelectionRange(0, 99999)
+                document.execCommand("copy");
+                alert("Cifra copiada com sucesso");
+            }
+        </script>
+
+        <h2>Pronto sua cifra já foi convertida para {{new_tom}}<br>
+            Cheque seu Email para ver se ela foi enviada, se não click em copiar,<br>
+            Depois podes colar em qualquer editor de texto<br>
+            ou colar em qualquer rede social e enviar direto para um amigo se quiser.
+        </h2><br>
+        
+        {% csrf_token %}
+        <textarea name="cifra_n" id="cifra_n1" rows="20", cols="100" style="color: blue;">{{new_cifra}}</textarea>   
+        <br>
+        <button style="background-color: darkslategrey; color: #000;" onclick="copiarTexto()">  Copiar  </button>
+        <br>
+        <a href="{{link}}" download>Baixar</a>
+    </div>
+    <br>
+    <a href="javascript: history.go(-1)">Voltar</a>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1380471728211177"
+    crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    
+    
+</div>
