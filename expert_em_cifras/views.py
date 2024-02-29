@@ -49,7 +49,7 @@ def expertEmCifras(request):
                 }
 
                 #enviar cifra
-                enviar_file(request.POST.get('email'), f"{request.POST.get('nome_cifra')}", f'Expert em Cifra Pronto aqui está sua cifra {request.POST.get("nome_cifra")} em {request.POST.get('novo')}')
+                #enviar_file(request.POST.get('email'), f"{request.POST.get('nome_cifra')}", f'Expert em Cifra Pronto aqui está sua cifra {request.POST.get("nome_cifra")} em {request.POST.get('novo')}')
                 #os.system(f'del /s /q Minhas_cifras/{request.POST.get("nome_cifra")}.txt')
                 return render(request, 'info/cifra.html', lista_cifra)
                 
