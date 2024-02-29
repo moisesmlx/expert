@@ -1,14 +1,15 @@
 from django.shortcuts import render
+from class_expert_cifras import Cifras
+import class_expert_cifras
 from django.http import HttpResponse
 from random import randint
-import class_expert_cifras
-from class_expert_cifras import Cifras
-from enviar_file import enviar_file, confirme_enviar
 import os
 
-
+id = ''
+confirme_download = False
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'main/index.html')
+
 
 def expertEmCifras(request):
     global id, confirme_download
@@ -36,7 +37,7 @@ def expertEmCifras(request):
                 try:
                     os.system(rf'del /s /q temporarios\{id}.txt')
                 except:
-                    os.system(rf'del /s /q temporarios/{id}.txt')
+                    os.system(f'del /s /q temporarios/{id}.txt')
                 confirme_download = True
                     
                 lista_cifra = {
@@ -44,13 +45,8 @@ def expertEmCifras(request):
                 'new_cifra': str(tom_new.strip()),
                 'nome': request.POST.get('id'),
                 'confirme_download': confirme_download,
-                'link': rf'Minhas_cifras\{request.POST.get("nome_cifra")}.txt',
-                'confirme_enviar': confirme_enviar
+                'link': f'Minhas_cifras/{request.POST.get('new_tom')}.txt',
                 }
-
-                #enviar cifra
-                #enviar_file(request.POST.get('email'), f"{request.POST.get('nome_cifra')}", f'Expert em Cifra Pronto aqui está sua cifra {request.POST.get("nome_cifra")} em {request.POST.get('novo')}')
-                #os.system(f'del /s /q Minhas_cifras/{request.POST.get("nome_cifra")}.txt')
                 return render(request, 'info/cifra.html', lista_cifra)
                 
             except Exception as erro:
@@ -67,6 +63,3 @@ def expertEmCifras(request):
                                 </center>''')
     else:    
         return render(request, 'info/info.html')
-
-def confirme(request):
-    return render(request)
