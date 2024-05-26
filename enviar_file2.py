@@ -69,7 +69,7 @@ def enviar_file(email_usuario, senha, destinatario, endereco_file, assunto):
       server.quit()
 
 class Email():
-    def __init__(self):
+    def __init__(self, file):
         janela = Tk()
 
         inf = Label(janela,text='''
@@ -83,7 +83,7 @@ class Email():
 
         
         def enviar():
-            enviar_file(email_usuario.get(), senha.get(), destinatario.get(), file.get(), assunto.get())
+            enviar_file(email_usuario.get(), senha.get(), destinatario.get(), file, f'Sua Cifra {file}')
                                                   
         f = Frame(janela, bd=2, bg='#9370DB')
         Label(f, text='Digite seu email:',bg='#DDA0DD').grid(row=0, column=0, padx=3, pady=3)
@@ -98,13 +98,13 @@ class Email():
         destinatario = Entry(f, bd=4)
         destinatario.grid(row=2, column=1, padx=3, pady=3)
 
-        Label(f, text='Nome da cifra:',bg='#DDA0DD').grid(row=3, column=0, padx=3, pady=3)
+        '''Label(f, text='Nome da cifra:',bg='#DDA0DD').grid(row=3, column=0, padx=3, pady=3)
         file = Entry(f, bd=4)
-        file.grid(row=3, column=1, padx=3, pady=3)
+        file.grid(row=3, column=1, padx=3, pady=3)'''
 
-        Label(f, text='Assunto:',bg='#DDA0DD').grid(row=4, column=0, padx=3, pady=3)
+        '''Label(f, text='Assunto:',bg='#DDA0DD').grid(row=4, column=0, padx=3, pady=3)
         assunto = Entry(f, bd=4)
-        assunto.grid(row=4, column=1, padx=3, pady=3)
+        assunto.grid(row=4, column=1, padx=3, pady=3)'''
 
         email_usuario.focus()
 
@@ -119,4 +119,4 @@ class Email():
 
 
 if __name__ == '__main__':
-    Email()
+    Email('A')

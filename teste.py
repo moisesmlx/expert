@@ -2,64 +2,63 @@
 from re import T
 from tkinter import *
 from tkinter import messagebox
-import os
-import pyautogui
 from time import sleep
-import clipboard
 import escala
 import threading
 
+
 nova_cifra = []
-class Trans_Ast:
-    def __init__(self,n_cifra, original, mudado, text_area, id=None):
-        def t_Ast(self):
+class Trans_A:
+    def __init__(self, n_cifra, original, mudado, text_area, id):
+
+        def t_A(self):
             if str(n_cifra) != '':
                 try:
                     cifra = ''
 
-                    #Lá
-                    if original.upper() == 'A#' and mudado.upper() == 'A':
-                        original_cifra = escala.Ast
+                    #B
+                    if original.upper() == 'A' and mudado.upper() == 'E':
+                        original_cifra = escala.B
                         sub = escala.A
                     
-                    if original.upper() == 'A#' and mudado.upper() == 'B':
-                        original_cifra = escala.Ast
-                        sub = escala.B
+                    if original.upper() == 'A' and mudado.upper() == 'A#':
+                        original_cifra = escala.B
+                        sub = escala.Ast
 
-                    if original.upper() == 'A#' and mudado.upper() == 'C':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'B':
+                        original_cifra = escala.B
                         sub = escala.C
                    
-                    if original.upper() == 'A#' and mudado.upper() == 'C#':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'C':
+                        original_cifra = escala.B
                         sub = escala.Cst
 
-                    if original.upper() == 'A#' and mudado.upper() == 'D':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'C#':
+                        original_cifra = escala.B
                         sub = escala.D
                         
-                    if original.upper() == 'A#' and mudado.upper() == 'D#':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'D':
+                        original_cifra = escala.B
                         sub = escala.Dst
                         
-                    if original.upper() == 'A#' and mudado.upper() == 'E':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'D#':
+                        original_cifra = escala.B
                         sub = escala.E
                                   
-                    if original.upper() == 'A#' and mudado.upper() == 'F':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'F':
+                        original_cifra = escala.B
                         sub = escala.F
 
-                    if original.upper() == 'A#' and mudado.upper() == 'F#':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'F#':
+                        original_cifra = escala.B
                         sub = escala.Fst
 
-                    if original.upper() == 'A#' and mudado.upper() == 'G':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'G':
+                        original_cifra = escala.B
                         sub = escala.G
 
-                    if original.upper() == 'A#' and mudado.upper() == 'G#':
-                        original_cifra = escala.Ast
+                    if original.upper() == 'A' and mudado.upper() == 'G#':
+                        original_cifra = escala.B
                         sub = escala.Gst
 
 
@@ -81,7 +80,7 @@ class Trans_Ast:
                                 for x in range(len(original_cifra)):
 
                                     #exceções
-                                    if original.upper() == 'A#' and mudado.upper() == 'A':
+                                    if original.upper() == 'A' and mudado.upper() == 'E':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -89,51 +88,51 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 1:
-                                                    cifra = cifra.replace('A#', 'A')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('A', 'E')
                                                     contar += 1
 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'Bm')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('Bm', 'F#m')
                                                     contar += 1
                                                 
                                                 
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Dm', 'C#m')
+                                                if contar == 5:
+                                                    cifra = cifra.replace('C#m', 'G#m')
                                                     contar += 1
                                                                                         
                                                 if contar == 4:
-                                                    cifra = cifra.replace('D#', 'D')
+                                                    cifra = cifra.replace('D', 'A')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 5:
-                                                    cifra = cifra.replace('F', 'E')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('E', 'B')
                                                     contar += 1
                                                                                                                                                                        
                                                 if contar == 6:
-                                                    cifra = cifra.replace('Gm', 'F#m')
+                                                    cifra = cifra.replace('F#m', 'C#m')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'G#°')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('G#°', 'D#°')
                                                     contar += 1
 
+                                                if contar == 10:
+                                                    cifra = cifra.replace('/C#', '/G#')
+                                                    contar += 1
+                                                
                                                 if contar == 8:
-                                                    cifra = cifra.replace('/D', '/C#')
+                                                    cifra = cifra.replace('/F#', '/C#')
                                                     contar += 1
                                                 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/F#')
-                                                    contar += 1
-                                                
-                                                if contar == 10:
-                                                    cifra = cifra.replace('/A', '/G#')
+                                                    cifra = cifra.replace('/G#', '/D#')
                                                     contar += 1
              
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'B':
+                                    elif original.upper() == 'A' and mudado.upper() == 'A#':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -141,50 +140,50 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 1:
-                                                    cifra = cifra.replace('A#', 'B')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('A', 'A#')
                                                     contar += 1
 
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Cm', 'C#m')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('Bm', 'Cm')
                                                     contar += 1
                                                 
                                                 
                                                 if contar == 6:
-                                                    cifra = cifra.replace('Dm', 'D#m')
+                                                    cifra = cifra.replace('C#m', 'Dm')
                                                     contar += 1
                                                                                         
-                                                if contar == 2:
-                                                    cifra = cifra.replace('D#', 'E')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('D', 'D#')
                                                     contar += 1
                                                                                                                                
                                                 if contar == 4:
-                                                    cifra = cifra.replace('F', 'F#')
+                                                    cifra = cifra.replace('E', 'F')
                                                     contar += 1
                                                                                                                                                                        
                                                 if contar == 5:
-                                                    cifra = cifra.replace('Gm', 'G#m')
+                                                    cifra = cifra.replace('F#m', 'Gm')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'A#°')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('G#°', 'A°')
                                                     contar += 1
 
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/D#')
-                                                    contar += 1
-                                                
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/G#')
+                                                    cifra = cifra.replace('/C#', '/D')
                                                     contar += 1
                                                 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/A#')
+                                                    cifra = cifra.replace('/F#', '/G')
+                                                    contar += 1
+                                                
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/G#', '/A')
                                                     contar += 1
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'C':
+                                    elif original.upper() == 'A' and mudado.upper() == 'B':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -192,48 +191,48 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 3:
-                                                    cifra = cifra.replace('A#', 'C')
+                                                if contar == 5:
+                                                    cifra = cifra.replace('A', 'B')
                                                     contar += 1
 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'Dm')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('Bm', 'C#m')
                                                     contar += 1
                                                 
                                                 
                                                 if contar == 1:
-                                                    cifra = cifra.replace('Dm', 'Em')
+                                                    cifra = cifra.replace('C#m', '2re#m')
                                                     contar += 1
                                                                                         
                                                 if contar == 6:
-                                                    cifra = cifra.replace('D#', 'F')
+                                                    cifra = cifra.replace('D', 'E')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 5:
-                                                    cifra = cifra.replace('F', 'G')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('E', 'F#')
                                                     contar += 1
                                                                                                                                                                        
-                                                if contar == 4:
-                                                    cifra = cifra.replace('Gm', 'Am')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('F#m', 'G#m')
                                                     contar += 1
                                                     
                                                 if contar == 7:
-                                                    cifra = cifra.replace('A°', 'B°')
+                                                    cifra = cifra.replace('G#°', 'A#°')
                                                     contar += 1
 
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/E')
+                                                if contar == 9:
+                                                    cifra = cifra.replace('/C#', '/D#')
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/G', '/A')
+                                                    cifra = cifra.replace('/F#', '/G#')
 
-                                                if contar == 9:
-                                                    cifra = cifra.replace('/A', '/B')
-             
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/G#', '/A#')
+                                                         
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'C#':
+                                    elif original.upper() == 'A' and mudado.upper() == 'C':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -242,46 +241,47 @@ class Trans_Ast:
                                             
                                             while TRUE:
                                                 if contar == 3:
-                                                    cifra = cifra.replace('A#', 'C#')
+                                                    cifra = cifra.replace('A', 'C')
                                                     contar += 1
 
                                                 if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'D#m')
+                                                    cifra = cifra.replace('Bm', 'Dm')
                                                     contar += 1
                                                 
                                                 
-                                                if contar == 1:
-                                                    cifra = cifra.replace('Dm', 'Fm')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('C#m', 'Em')
                                                     contar += 1
                                                                                         
-                                                if contar == 6:
-                                                    cifra = cifra.replace('D#', 'F#')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('D', 'F')
                                                     contar += 1
                                                                                                                                
                                                 if contar == 5:
-                                                    cifra = cifra.replace('F', 'G#')
+                                                    cifra = cifra.replace('E', 'G')
                                                     contar += 1
                                                                                                                                                                        
                                                 if contar == 4:
-                                                    cifra = cifra.replace('Gm', 'A#m')
+                                                    cifra = cifra.replace('F#m', 'Am')
                                                     contar += 1
                                                     
                                                 if contar == 7:
-                                                    cifra = cifra.replace('A°', 'C°')
+                                                    cifra = cifra.replace('G#°', 'B°')
                                                     contar += 1
 
                                                 if contar == 8:
-                                                    cifra = cifra.replace('/D', '/F')
+                                                    cifra = cifra.replace('/C#', '/E')
 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/A#')
+                                                    cifra = cifra.replace('/F#', '/A')
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/C')
+                                                    cifra = cifra.replace('/G#', '/B')
+                                                    
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'D':
+                                    elif original.upper() == 'A' and mudado.upper() == 'C#':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -289,51 +289,50 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 2:
-                                                    cifra = cifra.replace('A#', 'D')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('A', 'C#')
                                                     contar += 1
 
-                                                if contar == 4:
-                                                    cifra = cifra.replace('Cm', 'Em')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('Bm', 'D#m')
                                                     contar += 1
                                                 
-                                                
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Dm', 'F#m')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('C#m', 'Fm')
                                                     contar += 1
                                                                                         
                                                 if contar == 1:
-                                                    cifra = cifra.replace('D#', 'G')
+                                                    cifra = cifra.replace('D', 'F#')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 3:
-                                                    cifra = cifra.replace('F', 'A')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('E', 'G#')
                                                     contar += 1
                                                                                                                                                                        
                                                 if contar == 5:
-                                                    cifra = cifra.replace('Gm', 'Bm')
+                                                    cifra = cifra.replace('F#m', 'A#m')
                                                     contar += 1
                                                     
                                                 if contar == 7:
-                                                    cifra = cifra.replace('A°', 'C#°')
-                                                    contar += 1
-
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/F#')
+                                                    cifra = cifra.replace('G#°', 'C°')
                                                     contar += 1
 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/B')
+                                                    cifra = cifra.replace('/C#', '/F')
+                                                    contar += 1
+
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/F#', '/A#')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/C#')
+                                                    cifra = cifra.replace('/G#', '/C')
                                                     contar += 1 
              
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'D#':
+                                    elif original.upper() == 'A' and mudado.upper() == 'D':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -341,50 +340,100 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 2:
-                                                    cifra = cifra.replace('A#', 'D#')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('A', 'D')
                                                     contar += 1
 
-                                                if contar == 4:
-                                                    cifra = cifra.replace('Cm', 'Fm')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('Bm', 'Em')
                                                     contar += 1
                                                 
                                                 
                                                 if contar == 6:
-                                                    cifra = cifra.replace('Dm', 'Gm')
+                                                    cifra = cifra.replace('C#m', 'F#m')
                                                     contar += 1
                                                                                         
                                                 if contar == 1:
-                                                    cifra = cifra.replace('D#', 'G#')
+                                                    cifra = cifra.replace('D', 'G')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 3:
-                                                    cifra = cifra.replace('F', 'A#')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('E', 'A')
                                                     contar += 1
                                                                                                                                                                        
                                                 if contar == 5:
-                                                    cifra = cifra.replace('Gm', 'Cm')
+                                                    cifra = cifra.replace('F#m', 'Bm')
                                                     contar += 1
                                                     
+                                                if contar == 2:
+                                                    cifra = cifra.replace('G#°', 'C#°')
+                                                    contar += 1
+
+                                                if contar == 9:
+                                                    cifra = cifra.replace('/C#', '/F#')
+                                                    contar += 1
+
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/F#', '/B')
+                                                    contar += 1
+
+                                                if contar == 10:
+                                                    cifra = cifra.replace('/G#', '/C#')
+                                                    contar += 1 
+                                                    break
+                                                break
+
+                                    elif original.upper() == 'A' and mudado.upper() == 'D#':
+                                        
+                                        if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
+                                            cifra = str(te[i])
+                                            confere = FALSE
+                                        if confere:
+                                            
+                                            while TRUE:
+                                                if contar == 4:
+                                                    cifra = cifra.replace('A', 'D#')
+                                                    contar += 1
+
                                                 if contar == 7:
+                                                    cifra = cifra.replace('Bm', 'Fm')
+                                                    contar += 1                                       
+                                                
+                                                if contar == 1:
+                                                    cifra = cifra.replace('C#m', 'Gm')
+                                                    contar += 1
+                                                                                        
+                                                if contar == 2:
+                                                    cifra = cifra.replace('D', 'G#')
+                                                    contar += 1
+                                                                                                                               
+                                                if contar == 6:
+                                                    cifra = cifra.replace('E', 'A#')
+                                                    contar += 1
+                                                                                                                                                                       
+                                                if contar == 5:
+                                                    cifra = cifra.replace('F#m', 'Cm')
+                                                    contar += 1
+                                                    
+                                                if contar == 3:
                                                     cifra = cifra.replace('G#°', 'D°')
                                                     contar += 1
 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/D', '/G')
+                                                    cifra = cifra.replace('/C#', '/G')
                                                     contar += 1
 
                                                 if contar == 8:
-                                                    cifra = cifra.replace('/G', '/C')
+                                                    cifra = cifra.replace('/F#', '/C')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/D')
+                                                    cifra = cifra.replace('/G#', '/D')
                                                     contar += 1 
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'E':
+                                    elif original.upper() == 'A' and mudado.upper() == 'F':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -392,99 +441,49 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 2:
-                                                    cifra = cifra.replace('A#', 'E')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('A', 'F')
                                                     contar += 1
 
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Cm', 'F#m')
-                                                    contar += 1                                       
-                                                
-                                                if contar == 4:
-                                                    cifra = cifra.replace('Dm', 'G#m')
-                                                    contar += 1
-                                                                                        
-                                                if contar == 3:
-                                                    cifra = cifra.replace('D#', 'A')
-                                                    contar += 1
-                                                                                                                               
-                                                if contar == 1:
-                                                    cifra = cifra.replace('F', 'B')
-                                                    contar += 1
-                                                                                                                                                                       
                                                 if contar == 5:
-                                                    cifra = cifra.replace('Gm', 'C#m')
-                                                    contar += 1
-                                                    
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'D#°')
-                                                    contar += 1
-
-                                                if contar == 9:
-                                                    cifra = cifra.replace('/D', '/G#')
-                                                    contar += 1
-
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/G', '/C#')
-                                                    contar += 1
-
-                                                if contar == 10:
-                                                    cifra = cifra.replace('/A', '/D#')
-                                                    contar += 1 
-                                                    break
-                                                break
-
-                                    elif original.upper() == 'A#' and mudado.upper() == 'F':
-                                        
-                                        if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
-                                            cifra = str(te[i])
-                                            confere = FALSE
-                                        if confere:
-                                            
-                                            while TRUE:
-                                                if contar == 4:
-                                                    cifra = cifra.replace('A#', 'F')
-                                                    contar += 1
-
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Cm', 'Gm')
+                                                    cifra = cifra.replace('Bm', 'Gm')
                                                     contar += 1                                        
                                                 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Dm', 'Am')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('C#m', 'Am')
                                                     contar += 1
                                                                                         
-                                                if contar == 5:
-                                                    cifra = cifra.replace('D#', 'A#')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('D', 'A#')
                                                     contar += 1
                                                                                                                                
                                                 if contar == 1:
-                                                    cifra = cifra.replace('F', 'C')
+                                                    cifra = cifra.replace('E', 'C')
                                                     contar += 1
                                                                                                                                                                        
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Gm', 'Dm')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('F#m', 'Dm')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'E°')
+                                                if contar == 8:
+                                                    cifra = cifra.replace('G#°', 'E°')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/D', '/A')
+                                                    cifra = cifra.replace('/C#', '/A')
                                                     contar += 1
 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/D')
+                                                    cifra = cifra.replace('/F#', '/D')
                                                     contar += 1
 
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/A', '/E')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('/G#', '/E')
                                                     contar += 1
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'F#':
+                                    elif original.upper() == 'A' and mudado.upper() == 'F#':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -492,53 +491,49 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 5:
-                                                    cifra = cifra.replace('A#', 'F#')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('A', 'F#')
                                                     contar += 1
 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'G#m')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('Bm', 'G#m')
                                                     contar += 1                                        
                                                 
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Dm', 'A#m')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('C#m', 'A#m')
                                                     contar += 1
                                                                                         
-                                                if contar == 4:
-                                                    cifra = cifra.replace('D#', 'B')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('D', 'B')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 1:
-                                                    cifra = cifra.replace('F', 'C#')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('E', 'C#')
                                                     contar += 1
                                                                                                                                                                        
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Gm', 'D#m')
+                                                if contar == 5:
+                                                    cifra = cifra.replace('F#m', 'D#m')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'F°')
-                                                    contar += 1
-
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/A#')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('G#°', 'F°')
                                                     contar += 1
 
                                                 if contar == 9:
-                                                    cifra = cifra.replace('/G', '/D#')
+                                                    cifra = cifra.replace('/C#', '/A#')
+                                                    contar += 1
+
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/F#', '/D#')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/F')
-                                                    contar += 1
-                                                
-                                                if contar == 11:
-                                                    cifra = cifra.replace('/F#', '/A#')
+                                                    cifra = cifra.replace('/G#', '/F')
                                                     contar += 1
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'G':
+                                    elif original.upper() == 'A' and mudado.upper() == 'G':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
@@ -546,135 +541,95 @@ class Trans_Ast:
                                         if confere:
                                             
                                             while TRUE:
-                                                if contar == 1:
-                                                    cifra = cifra.replace('A#', 'G')
+                                                if contar == 5:
+                                                    cifra = cifra.replace('A', 'G')
                                                     contar += 1
 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'Am')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('Bm', 'Am')
                                                     contar += 1                                       
                                                 
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Dm', 'Bm')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('C#m', 'Bm')
                                                     contar += 1
                                                                                         
-                                                if contar == 4:
-                                                    cifra = cifra.replace('D#', 'C')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('D', 'C')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 5:
-                                                    cifra = cifra.replace('F', 'D')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('E', 'D')
                                                     contar += 1
                                                                                                                                                                        
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Gm', 'Em')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('F#m', 'Em')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'F#°')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('G#°', 'F#°')
                                                     contar += 1
                                                 
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/B')
+                                                if contar == 9:
+                                                    cifra = cifra.replace('/C#', '/B')
                                                     contar += 1
 
-                                                if contar == 9:
-                                                    cifra = cifra.replace('/G', '/E')
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/F#', '/E')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/F#')
+                                                    cifra = cifra.replace('/G#', '/F#')
                                                     contar += 1
 
                                                     break
                                                 break
 
-                                    elif original.upper() == 'A#' and mudado.upper() == 'G#':
+                                    elif original.upper() == 'A' and mudado.upper() == 'G#':
                                         
                                         if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
                                             cifra = str(te[i])
                                             confere = FALSE
                                         if confere:
-                                            
                                             while TRUE:
-                                                if contar == 1:
-                                                    cifra = cifra.replace('A#', 'G#')
+                                                if contar == 3:
+                                                    cifra = cifra.replace('A', 'G#')
                                                     contar += 1
 
-                                                if contar == 2:
-                                                    cifra = cifra.replace('Cm', 'A#m')
+                                                if contar == 6:
+                                                    cifra = cifra.replace('Bm', 'A#m')
                                                     contar += 1                                       
                                                 
-                                                if contar == 3:
-                                                    cifra = cifra.replace('Dm', 'Cm')
+                                                if contar == 1:
+                                                    cifra = cifra.replace('C#m', 'Cm')
                                                     contar += 1
                                                                                         
-                                                if contar == 4:
-                                                    cifra = cifra.replace('D#', 'C#')
+                                                if contar == 5:
+                                                    cifra = cifra.replace('D', 'C#')
                                                     contar += 1
                                                                                                                                
-                                                if contar == 5:
-                                                    cifra = cifra.replace('F', 'D#')
+                                                if contar == 7:
+                                                    cifra = cifra.replace('E', 'D#')
                                                     contar += 1
                                                                                                                                                                        
-                                                if contar == 6:
-                                                    cifra = cifra.replace('Gm', 'Fm')
+                                                if contar == 2:
+                                                    cifra = cifra.replace('F#m', 'Fm')
                                                     contar += 1
                                                     
-                                                if contar == 7:
-                                                    cifra = cifra.replace('A°', 'G°')
+                                                if contar == 4:
+                                                    cifra = cifra.replace('G#°', 'G°')
                                                     contar += 1
                                                 
-                                                if contar == 8:
-                                                    cifra = cifra.replace('/D', '/C')
+                                                if contar == 9:
+                                                    cifra = cifra.replace('/C#', '/C')
                                                     contar += 1
 
-                                                if contar == 9:
-                                                    cifra = cifra.replace('/G', '/F')
+                                                if contar == 8:
+                                                    cifra = cifra.replace('/F#', '/F')
                                                     contar += 1
 
                                                 if contar == 10:
-                                                    cifra = cifra.replace('/A', '/G')
+                                                    cifra = cifra.replace('/G#', '/G')
                                                     contar += 1
-                                                    break
-                                                break
-
-                                        
-                                        if '.' in str(te[i]) or ',' in str(te[i]) or 'l' in str(te[i]) or ':' in str(te[i]) or ';' in str(te[i]) or 'o' in str(te[i]) or 'u' in str(te[i]) or 'i' in str(te[i]) or '?' in str(te[i]) or 'p' in str(te[i]) or 'c' in str(te[i]) or 'a' in str(te[i])or 'e' in str(te[i] or 'f' in str(te[i])) or 'h' in str(te[i]) or 'n' in str(te[i]) or 'p' in str(te[i]) or 'r' in str(te[i]) or 'q' in str(te[i]) or 'z' in str(te[i]) or 'j' in str(te[i]):
-                                            cifra = str(te[i])
-                                            confere = FALSE
-                                        if confere:
-                                            
-                                            while TRUE:
-                                                if contar == 1:
-                                                    cifra = cifra.replace(str(original_cifra[18]), str(sub[18]))
-                                                    contar += 1
-
-                                                if contar == 2:
-                                                    cifra = cifra.replace(str(original_cifra[13]), str(sub[13]))
-                                                    contar += 1
-                                                
-                                                
-                                                if contar == 3:
-                                                    cifra = cifra.replace(str(original_cifra[20]), str(sub[20]))
-                                                    contar += 1
-                                                                                        
-                                                if contar == 4:
-                                                    cifra = cifra.replace(str(original_cifra[23]), str(sub[23]))
-                                                    contar += 1
-                                                                                                                               
-                                                if contar == 5:
-                                                    cifra = cifra.replace(str(original_cifra[7]), str(sub[7]))
-                                                    contar += 1
-                                                                                                                                                                       
-                                                if contar == 6:
-                                                    cifra = cifra.replace(str(original_cifra[11]), str(sub[11]))
-                                                    contar += 1
-                                                    
-                                                if contar == 7:
-                                                    cifra = cifra.replace(str(original_cifra[14]), str(sub[14]))
-                                                    contar += 1
-             
                                                     break
                                                 break
                                             
@@ -687,25 +642,10 @@ class Trans_Ast:
                                         cifra = cifra.replace('/F#', '/D#')
                                         cifra = cifra.replace('B#', 'A#')
 
-                                    if original.upper() == 'A' and mudado.upper() == 'C':
-                                        cifra = cifra.replace('#', '')
-                                        
-                                    if mudado.upper() == 'A#' and original.upper() == 'A':
-                                        cifra = cifra.replace('/D#', '/D')
-                                        cifra = cifra.replace('/A#', '/A')
-                                    if mudado.upper() == 'B' and original.upper() == 'A':
-                                        cifra = cifra.replace('/F#', '/D#')
-                                        cifra = cifra.replace('/E#', '/D#')
-                                    if mudado.upper() == 'C#' and original.upper() == 'A':
-                                            cifra = cifra.replace('C#9/F#', 'C#9/F')
-                                    if mudado.upper() == 'C' and original.upper() == 'A':
-                                            cifra = cifra.replace('Fm', 'Dm')
-
                             sleep(0.01)
                             
 
                             try:
-                                cifra = cifra.replace('##', '#')
                                 cifra = cifra.replace('##', '#')
                                 cifra = cifra.replace('A/A', 'A/C#')
                                 cifra = cifra.replace('A9/A', 'A9/C#')
@@ -723,29 +663,36 @@ class Trans_Ast:
                                 cifra = cifra.replace('D#9/D#', 'D#9/G')
                                 cifra = cifra.replace('G/G', 'G/B')
                                 cifra = cifra.replace('G#/G#', 'G#/C')
+                                cifra = cifra.replace('G#/A#', 'G#/C')
+                                cifra = cifra.replace('E/F#', 'E/G#')
+                                cifra = cifra.replace('F/G#', 'F/A')
+                                cifra = cifra.replace('C#/D#', 'C#/F')
+                                cifra = cifra.replace('D/E#', 'D/F#')
+                                cifra = cifra.replace('D#/F#', 'D#/G')
+                                cifra = cifra.replace('F#/C', 'F#/A#')
+                                cifra = cifra.replace('A#/D#', 'A#/D')
+                                cifra = cifra.replace('F#/A##', 'F#/A#')
+                                cifra = cifra.replace('G/C#', 'G/B')
+                                cifra = cifra.replace('B/G', 'B/D#')
+                                cifra = cifra.replace('B9/G', 'B9/D#')
                                 cifra = cifra.replace('Eb', 'D#')
                                 cifra = cifra.replace('Bb', 'A#')
-                                cifra = cifra.replace('G/A', 'G/B')
-                                cifra = cifra.replace('G#/A', 'G#/C')
-                                cifra = cifra.replace('B/A', 'B/D#')
-                                cifra = cifra.replace('C/A', 'C/E')
-                                cifra = cifra.replace('C#/A', 'C#/F')
-                                cifra = cifra.replace('D/A', 'D/F#')
-                                cifra = cifra.replace('D#/A', 'D#/G')
-                                cifra = cifra.replace('E/A', 'E/G#')
-                                cifra = cifra.replace('F#/A', 'F#/A#')
-                                cifra = cifra.replace('##', '#')
+                                cifra = cifra.replace('G/D', 'G/B')
+                                cifra = cifra.replace('/D##', '/D#')
+                                cifra = cifra.replace('/B#', '/B')
+                                cifra = cifra.replace('2re', 'D')
                                 
                             except: pass
                             with open(fr'Minhas_cifras/{n_cifra}.txt', 'a', encoding='utf-8') as arquivo:
-                                if cifra == '\n':
-                                    pass
-                                else:
-                                    arquivo.write(str(cifra))
-                                    nova_cifra.append(str(cifra))
+                                arquivo.write(str(cifra))
+                                nova_cifra.append(str(cifra))
 
                 except Exception as error:
                     erro=f'Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!\n{error}'
             else:
                 erro=f'Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!'
-        threading.Thread(target=t_Ast(self)).start()
+        threading.Thread(target=t_A(self)).start()
+
+if __name__ =='__main__':
+    Trans_A('E', 'A', 'E', 'A Bm\nF#m', 1,)
+    print( nova_cifra)

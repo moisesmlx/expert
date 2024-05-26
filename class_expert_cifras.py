@@ -1,6 +1,4 @@
 # _*_ coding:utf-8 _*_
-from tkinter import *
-from tkinter import messagebox
 from trans_A import *
 from trans_Am import *
 from trans_Astm import *
@@ -26,7 +24,7 @@ from trans_Gm import *
 from trans_Gst import *
 from trans_Gstm import *
 from enviar_file import *
-from pdf import *
+#from pdf import *
 from escala import *
 
 
@@ -53,7 +51,7 @@ class Cifras():
                         if original == 'Bm':
                             Trans_Bm(n_cifra, original, mudado, text_area, id)
                         if original.upper() == 'C':
-                            Trans_C(n_cifra, original, mudado, text_area, id)                  
+                            Trans_C(n_cifra, original, mudado, text_area, id)              
                         if original == 'Cm':
                             Trans_Cm(n_cifra, original, mudado, text_area, id)
                         if original.upper() == 'C#':
@@ -68,6 +66,8 @@ class Cifras():
                             Trans_Dst(n_cifra, original, mudado, text_area, id)
                         if original == 'D#m':
                             Trans_Dstm(n_cifra, original, mudado, text_area, id)
+                            for l in nova_cifra:
+                                new += f'{str(l)}'
                         if original.upper() == 'E':
                             Trans_E(n_cifra, original, mudado, text_area, id)
                         if original == 'Em':
@@ -88,10 +88,13 @@ class Cifras():
                             Trans_Gst(n_cifra, original, mudado, text_area, id)
                         if original == 'G#m':
                             Trans_Gstm(n_cifra, original, mudado, text_area, id)
-                      
-                        with open(fr'Minhas_cifras/{n_cifra}.txt', 'r', encoding='utf-8') as texto:
-                            self.nova_cifra = str(texto.read())
-                            new = self.nova_cifra
+
+                        #from time import sleep
+                        #sleep(2)
+
+                        '''with open(fr'Minhas_cifras/{n_cifra}.txt', 'r', encoding='utf-8') as texto:
+                            self.nova_cifra = str(texto.read())'''
+
                             #create_pdf(fr'static/Minhas_cifras/{n_cifra}', f'Minhas_cifras/{n_cifra}')
                         
                         #messagebox.showinfo(title='info', message=f'Sucesso, a troca de escala foi concluída de "{original}" para "{mudado}"')
@@ -107,3 +110,4 @@ class Cifras():
 
 if __name__ == '__main__':
     Cifras('Testando', 'A', 'C', 'A Bm C#m D E F#m G#°', 'nome_cifra')
+    print(new)

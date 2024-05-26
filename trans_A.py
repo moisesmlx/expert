@@ -7,10 +7,12 @@ import escala
 import threading
 
 
+nova_cifra = []
 class Trans_A:
     def __init__(self, n_cifra, original, mudado, text_area, id):
 
         def t_A(self):
+            global nova_cifra
             if str(n_cifra) != '':
                 try:
                     cifra = ''
@@ -683,13 +685,19 @@ class Trans_A:
                                 
                             except: pass
                             with open(fr'Minhas_cifras/{n_cifra}.txt', 'a', encoding='utf-8') as arquivo:
-                                arquivo.write(str(cifra))
+                                if cifra == '\n':
+                                    pass
+                                else:
+                                    arquivo.write(str(cifra))
+                                    nova_cifra.append(str(cifra))
+                                    
 
-                except:
-                    messagebox.showerror(title='ERRO!', message='Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!')
+                except Exception as error:
+                    erro=f'Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!\n{error}'
             else:
-                messagebox.showerror(title='ERRO!', message='Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!')
-            
+                erro=f'Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!'
         threading.Thread(target=t_A(self)).start()
 
-
+if __name__ =='__main__':
+    Trans_A('E', 'A', 'E', 'A Bm', 1,)
+    print( nova_cifra)

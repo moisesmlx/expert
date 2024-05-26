@@ -9,7 +9,7 @@ import clipboard
 import escala
 import threading
 
-
+nova_cifra = []
 class Trans_Bm:
     def __init__(self,n_cifra, original, mudado, text_area, id=None):
         def t_Bm(self):
@@ -782,7 +782,11 @@ class Trans_Bm:
                                 
                             except: pass
                             with open(fr'Minhas_cifras/{n_cifra}.txt', 'a', encoding='utf-8') as arquivo:
-                                arquivo.write(str(cifra))
+                                if cifra == '\n':
+                                    pass
+                                else:
+                                    arquivo.write(str(cifra))
+                                    nova_cifra.append(str(cifra))
 
                 except Exception as error:
                     erro=f'Ouve um erro!\n Por favor cheque se digitou todas as informações necessária!\n{error}'
